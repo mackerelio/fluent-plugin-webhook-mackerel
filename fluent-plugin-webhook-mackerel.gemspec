@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["mackerel-developers@mackerel.io"]
   spec.summary       = %q{fluentd input plugin for receiving Mackerel webhook}
   spec.description   = %q{fluentd input plugin for receiving Mackerel webhook}
-  spec.homepage      = "https://mackerel.com/mackerelio/fluent-plugin-webhook-mackerel"
+  spec.homepage      = "https://github.com/mackerelio/fluent-plugin-webhook-mackerel"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
