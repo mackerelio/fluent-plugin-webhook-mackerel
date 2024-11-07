@@ -1,5 +1,6 @@
 require "thread"
 require "json"
+require 'fluent/input'
 require 'fluent/process'
 
 module Fluent
