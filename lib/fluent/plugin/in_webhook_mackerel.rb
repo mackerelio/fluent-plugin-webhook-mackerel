@@ -1,5 +1,6 @@
 require "thread"
 require "json"
+require 'fluent/input'
 require 'fluent/process'
 
 module Fluent
@@ -14,10 +15,12 @@ module Fluent
     config_param :mount, :string, :default => "/"
 
     def start
+      super
       @thread = Thread.new(&method(:run))
     end
 
     def shutdown
+      super
       @server.shutdown
       Thread.kill(@thread)
     end
@@ -52,7 +55,7 @@ module Fluent
       event = payload.delete "event"
       payload[:event] = event
       $log.info "tag: #{@tag.dup}.#{event}, payload:#{payload}"
-      Engine.emit("#{@tag.dup}.#{event}", Engine.now, payload)
+      router.emit("#{@tag.dup}.#{event}", Engine.now, payload)
     end
   end
 end
