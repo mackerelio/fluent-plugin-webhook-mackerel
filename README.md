@@ -10,7 +10,7 @@ fluentd input plugin for incoming webhook from Mackerel.
 
 ```
 <source>
-  type webhook_mackerel
+  @type webhook_mackerel
   tag mackerel
 
   # optional (values are default)
@@ -20,11 +20,11 @@ fluentd input plugin for incoming webhook from Mackerel.
 </source>
 
 <match mackerel.*>
-  type stdout
+  @type stdout
 </match>
 
 <match mackerel.alert>
-  type slack
+  @type slack
 </match>
 ```
 
