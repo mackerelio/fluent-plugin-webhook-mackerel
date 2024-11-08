@@ -15,10 +15,12 @@ module Fluent
     config_param :mount, :string, :default => "/"
 
     def start
+      super
       @thread = Thread.new(&method(:run))
     end
 
     def shutdown
+      super
       @server.shutdown
       Thread.kill(@thread)
     end
