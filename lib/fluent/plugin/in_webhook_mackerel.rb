@@ -55,7 +55,7 @@ module Fluent
       event = payload.delete "event"
       payload[:event] = event
       $log.info "tag: #{@tag.dup}.#{event}, payload:#{payload}"
-      Engine.emit("#{@tag.dup}.#{event}", Engine.now, payload)
+      router.emit("#{@tag.dup}.#{event}", Engine.now, payload)
     end
   end
 end
